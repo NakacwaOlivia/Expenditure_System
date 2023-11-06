@@ -121,6 +121,7 @@ celerybeat.pid
 
 # Environments
 frodo
+shanita
 .env
 .venv
 env/
