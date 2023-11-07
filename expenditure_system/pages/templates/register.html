@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Expenditure System | Register{% endblock %}</title>
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
     <script
       src="https://kit.fontawesome.com/970ef4d33f.js"
       crossorigin="anonymous"
     ></script>
-</head>
-<body class="vh-100 d-flex m-0 justify-content-center align-items-center bg-dark-subtle">
+  </head>
+  <body
+    class="vh-100 d-flex m-0 justify-content-center align-items-center bg-dark-subtle"
+  >
     {% block content %}
 
-        <!-- will insert code here -->
-        <h1>Register</h1>
+    <div
+      class="px-4 rounded-4 pt-3 mb-3 center-box"
+      style="background-color: #06083e"
+    ></div>
+    <!-- will insert code here -->
+    <h1>Register</h1>
 
     {% endblock %}
-</body>
-
+  </body>
 </html>
