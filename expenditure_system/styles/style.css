@@ -1,0 +1,12 @@
+body {
+    background: rgb(230, 227, 227);
+}
+
+.my-card {
+    transition: 0.3 ease-in-out;
+}
+.my-card:hover {
+
+    transform: scale(1.1);
+
+}
