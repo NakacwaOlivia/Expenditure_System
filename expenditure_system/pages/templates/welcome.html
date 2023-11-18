@@ -9,11 +9,31 @@
     {% bootstrap_javascript %}
 </head>
 <body>
-    {% block content %}
+{% block content %}
+<div class="container-fluid" style="background-color: #06083E">
+    <div class="card text-center vh-100 " style="background-color: #06083E">
 
-        <!-- Insert your code here -->
-        <h1>Welcome</h1>
-    
+        <div class="card-body d-flex align-items-center justify-content-center text-white" style="background-color: #06083E">
+          <div>
+              <div>
+                  <h4 class="card-title">WELCOME TO</h4>
+              </div>
+              <div>
+                  <h1 class="display-5 card-title ">EXPENDITURE INFORMATION</h1>
+              </div>
+              <div>
+                  <h2 style="font-family: 'Jim Nightshade', Courier, monospace;" class="card-title display-6 ">MANAGEMENT SYSTEM</h2>
+              </div>
+         
+              <a href="{% url 'login' %}" class="btn btn-light">LOGIN</a>
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <a href="{% url 'register' %}" class="btn btn-light">REGISTER</a>
+   
+          </div>
+        </div>
+       
+      </div>
+</div>
     {% endblock %}
 </body>
     
