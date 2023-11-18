@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Expenditure System | Update{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body>
+    {% block content %}
+
+        <!-- Insrt your code here -->
+        <style>
+            .my-custom-row{
+                background-color: beige;
+                height: 400px;
+
+            }
+        </style>
+        <!--the side navigation bar-->
+        <div class="d-flex col vh-100">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <div class="container-fluid">
+                    <a href="#" class="navbar-brand">Update Expenditure</a>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navmenu">
+                      <ul class="navbar-nav flex-column">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Update Item</a>
+                        </li>
+                        <li class="nave-item">
+                            <a href="#" class="nav-link">Add Item</a>
+                        </li>
+                      </ul>  
+                    </div>
+                </div>
+                
+            </nav>
+        </div>
+          
+        
+
+       <!--show case-->
+       <section class="bg-dark text-light p-5 text-center">
+        <div class="container">
+            <div class="d-flex">
+                <div>
+                <h1>Start Here!</h1>
+                 
+                </div>
+            </div>
+        </div>
+       </section>   
+
+        
+          
+
+    {% endblock %}
+</body>
+
+</html>
