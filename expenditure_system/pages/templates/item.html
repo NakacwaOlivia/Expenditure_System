@@ -21,7 +21,7 @@
 
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-primary navbar-primary">
+    <nav class="navbar navbar-expand-lg navbar-primary" style="background-color: #06083E;">
         <div class="container" >
           <a class="navbar-brand text-white" href="{% url 'welcome' %}">Project</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,16 +32,16 @@
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                      <a class="nav-link active text-white" aria-current="page" href="../templates/index.html">Dashboard</a>
+                      <a class="nav-link active text-white" aria-current="page" href="{% url 'dashboard' %}">Dashboard</a>
               </li>
             </ul>
 
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active text-white" aria-current="page" href="../templates/profile.html">Profile</a>
+                  <a class="nav-link active text-white" aria-current="page" href="{% url 'profile' %}">Profile</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Logout</a>
+                  <a class="nav-link text-white" href="{% url 'welcome' %}">Logout</a>
                 </li>
               </ul>
             
@@ -60,7 +60,7 @@
     <div class="container">
         <div class="row mt-3">
             <div class="col-md-4">
-                <div class="card text-bg-primary mb-3 mt-3 rounded-0">
+                <div class="card text-white mb-3 mt-3 rounded-0" style="background-color: #06083E;">
                     <div class="card-header h3">
                         New Information
                     </div>
@@ -68,10 +68,10 @@
                         <marquee behavior="" direction="">
                             <h3 class="my-4">For New Expenditure Information Update Here!</h3>
                         </marquee>
-                        <a href="../templates/add.html">
+                        <a href="{% url 'add' %}">
                           <button class="btn btn-primary">Add New Item</button>
                         </a>
-                        <a href="../templates/update.html">
+                        <a href="{% url 'update' %}">
                           <button class="btn btn-primary">Update Item</button>
                         </a>
                     </div>
@@ -81,7 +81,7 @@
             <!-- end of first card -->
 
             <div class="col-md-8">
-                    <div class="card text-bg-primary mb-3 mt-4 rounded-0">
+                    <div class="card text-white mb-3 mt-4 rounded-0" style="background-color: #06083E;">
                         <div class="card-header h3">
                             Statistics
                         </div>
@@ -89,7 +89,7 @@
                         <div class="card-body bg-light text-black ">
                             <div class="row">
                               <div class="col-md-4">
-                                <a href="../templates/staff.html" class="text-decoration-none text-dark">
+                                <a href="{% url 'staff' %}" class="text-decoration-none text-dark">
                                     <div class="card text-center p-3 my-card shadow">
                                         <h3><span>Staff <i class="bi bi-people-fill"></i></span></h3>
                                         <h3>4</h3>
@@ -99,7 +99,7 @@
                               <!-- end of card 1 -->
 
                               <div class="col-md-4">
-                                <a href="../templates/item.html" class="text-decoration-none text-dark">
+                                <a href="{% url 'item' %}" class="text-decoration-none text-dark">
                                     <div class="card text-center p-3 my-card shadow">
                                         <h3><span>Items <i class="bi bi-cart-fill"></i></span></h3>
                                         <h3>4</h3>
@@ -109,7 +109,7 @@
                               <!-- end of card 2 -->
 
                               <div class="col-md-4">
-                                <a href="../templates/quantity.html" class="text-decoration-none text-dark">
+                                <a href="{% url 'quantity' %}" class="text-decoration-none text-dark">
                                     <div class="card text-center p-3 my-card shadow">
                                         <h3><span>Quantity <i class="bi bi-bar-chart-fill"></i></span></h3>
                                         <h3>4</h3>
@@ -130,7 +130,7 @@
     <!-- table -->
     <div class="container">
         <table class="table bg-white">
-            <thead class="bg-primary text-white">
+            <thead class="text-white" style="background-color: #06083E;">
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Item</th>
@@ -142,24 +142,24 @@
                 <th scope="row">1</th>
                 <td>Mark</td>
                 <td>
-                  <a href="../templates/update.html" class="btn btn-sm btn-info">Edit</a>
-                  <a href="../templates/update.html" class="btn btn-sm btn-danger ms-4">Remove</a>
+                  <a href="{% url 'update' %}" class="btn btn-sm btn-info">Edit</a>
+                  <a href="{% url 'update' %}" class="btn btn-sm btn-danger ms-4">Remove</a>
                 </td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>Jacob</td>
                 <td>
-                  <a href="../templates/update.html" class="btn btn-sm btn-info">Edit</a>
-                  <a href="../templates/update.html" class="btn btn-sm btn-danger ms-4">Remove</a>
+                  <a href="{% url 'update' %}" class="btn btn-sm btn-info">Edit</a>
+                  <a href="{% url 'update' %}" class="btn btn-sm btn-danger ms-4">Remove</a>
                 </td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>Jacob</td>
                 <td>
-                  <a href="../templates/update.html" class="btn btn-sm btn-info">Edit</a>
-                  <a href="../templates/update.html" class="btn btn-sm btn-danger ms-4">Remove</a>
+                  <a href="{% url 'update' %}" class="btn btn-sm btn-info">Edit</a>
+                  <a href="{% url 'update' %}" class="btn btn-sm btn-danger ms-4">Remove</a>
                 </td>
               </tr>
             </tbody>
@@ -169,7 +169,7 @@
 
     <!-- add item button -->
     <div class="container d-flex justify-content-center my-5">
-      <a href="../templates/add.html">
+      <a href="{% url 'add' %}">
         <button class="btn btn-lg btn-primary text-uppercase">Add new Item</button>
       </a>
     </div>
