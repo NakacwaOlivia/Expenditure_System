@@ -44,6 +44,7 @@ class ItemPageView(TemplateView):
     template_name = "item.html"
 
 
+
 # ___________________________________________ shanita ______________________________
 # views.py
 
