@@ -29,12 +29,12 @@
         class="px-5 rounded-2 pt-0 center-box"
         style="
           background-color: #06083e;
-          block-size: 60vh;
+          block-size: 75vh;
           padding-block-start: 10%;
           border-radius: 4% !important;
         "
       >
-        <div class="p-2" style="padding-block-start: 20% !important">
+        <div class="p-1" style="padding-block-start: 10% !important">
           <h1 class="text-center text-white fw-light">Register</h1>
         </div>
         <br />
@@ -89,11 +89,23 @@
                 />
               </div>
             </div>
-            <div class="mt-3 form-check" style="align-items: left">
-              <input class="form-check-input" type="checkbox" id="gridCheck" />
-              <label class="form-check-label text-white" for="gridCheck"
-                >Agree to terms and conditions</label
-              >
+
+            <!-- check box  -->
+            <div class="mt-3 form-check">
+              <div>
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="gridCheck"
+                />
+              </div>
+              <div class="text-left position-relative">
+                <label
+                  class="form-check-label text-white position-absolute start-0"
+                  for="gridCheck"
+                  >Agree to terms and conditions</label
+                >
+              </div>
             </div>
             <div class="col-auto d-flex justify-content-center p-2 m-3">
               <a href="{% url 'login' %}" class="btn btn-light bg-dark-subtle"
