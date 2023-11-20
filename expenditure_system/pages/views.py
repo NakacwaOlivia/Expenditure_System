@@ -30,6 +30,26 @@ class ProfilePageView(TemplateView):
 class LoginPageView(TemplateView):
     template_name = "login.html"
 
+    def get(self, request):
+        return render(request, 'login.html')
+
+    def post(self, request):
+        # this is supposed to change i.e either to get the username or email
+        # user_email = request.POST.get('user_email')
+        username = request.POST.get('username')
+        # print("The captured username is ", username)
+
+        # Generate a random token
+        token = get_random_string(length=8)
+
+        # Store the token in the session for verification later
+        request.session['sent_token'] = token
+
+        # Send the token to the user's email (add your email sending logic here)
+
+        # Redirect to the confirmation page after sending the token
+        return redirect('confirm_page')
+
 
 class DashboardPageView(TemplateView):
     template_name = "dashboard.html"
