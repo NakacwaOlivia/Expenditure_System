@@ -88,23 +88,9 @@
                 />
               </div>
             </div>
-
-            <!-- check box  -->
-            <div class="mt-3 form-check">
-              <div>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="gridCheck"
-                />
-              </div>
-              <div class="text-left position-relative">
-                <label
-                  class="form-check-label text-white position-absolute start-0"
-                  for="gridCheck"
-                  >Agree to terms and conditions</label
-                >
-              </div>
+            <div class="mt-3 form-check" style="align-items: left;">
+              <input class="form-check-input" type="checkbox" id="gridCheck" />
+              <label class="form-check-label text-white" for="gridCheck">Agree to terms and conditions</label>
             </div>
             <div class="col-auto d-flex justify-content-center p-2 m-3">
               <a href="{% url 'login' %}" class="btn btn-light bg-dark-subtle"
