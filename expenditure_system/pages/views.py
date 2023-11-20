@@ -22,6 +22,24 @@ class UpdatePageView(TemplateView):
 class RegisterPageView(TemplateView):
     template_name = "register.html"
 
+    def get(self, request):
+        form = UserRegisterForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = UserRegisterForm(request.POST)
+        print(form)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            print("The username is ", username)
+            messages.success(request, f'Account created for {username}!')
+
+            return redirect('login')
+        print('I am here now')
+
+        return render(request, self.template_name, {'form': form})
+
 
 class ProfilePageView(TemplateView):
     template_name = "profile.html"
