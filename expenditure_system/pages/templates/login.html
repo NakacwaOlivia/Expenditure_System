@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,53 +15,65 @@
         padding-block-start: 200px;
     }
 </style>
+
 <body>
     {% block content %}
-        <div class="container-fluid justify-content-center align-items-center" style="block-size: 100vh; background-color: #83849f; text-align: center; padding: 10%; padding-inline-start: 20%; ">
-            <div class="row-md-12" >
-                    <div class="col-md-8 align-items-center "  style="text-align: center !important;  padding-inline-start: 150px; ">
-                        <form action="{% url 'login' %}" method="post" class="form" style="background-color: #06083E;  border-radius: 10%;">
-                            {% csrf_token %}  
-                                <div class="mb-3" style="block-size: 500px; padding-block-start: 80px;">
-                                    <div class="panel panel-default" style="background-color: #06083E; border: black">
-                                        <div class="text-center px-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white" class="bi bi-person-circle" viewBox="0 0 20 20">
-                                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                                            </svg>
-                                        </div>
-                                        <h3 class="text-center text-white">LOG IN</h3>
-                                        <br>
-                                        <!-- <div class="panel-heading text-white">Login</div> -->
-                                        <div class="panel-body">
-                                            {% if error_message %}
-                                                <p class="bg-danger p-d ml-b">{{ error_message }}</p>
-                                            {% endif %}
-                                            <div class="form-group clearfix">
-                                                <input v-model="username" :rules="userName" type="username" required class="form-control" id="exampleInputEmail1" aria-describedby="username" placeholder="Username"/>
-                                            </div>
-                                            <br>
-                                            <div class="form-group clearfix">
-                                                <span class="fa-duotone fa" id="basic-addon2"><font-awesome-icon icon="fa-solid fa-user-secret"/></span>
-                                                <input v-model="password" :rules="passwordRules" :type="passwordShow ? 'text' : 'password'" placeholder="Password" prepend-inner-icon="mdi-key" :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'" @click:append="passwordShow = !passwordShow"
-                                                required class="form-control" id="exampleInputPassword1"/>
-                                            </div>
-                                            <br>
-                                            <div class="text-center">
-                                                <a href="{% url 'confirm' %}" class="btn btn-light bg-dark-subtle">LOGIN</a> &nbsp;
-                                                <br>
-                                                <br>
-                                                <a href="/password">Forgot Password?</a>
-                                                <!-- <a href="/register">Register</a> -->
-                                            </div>
-                                        </div>
-                                    </div>
+    <div class="container-fluid justify-content-center align-items-center"
+        style="block-size: 100vh; background-color: #83849f; text-align: center; padding: 10%; padding-inline-start: 20%; ">
+        <div class="row-md-12">
+            <div class="col-md-8 align-items-center "
+                style="text-align: center !important;  padding-inline-start: 150px; ">
+                <form action="{% url 'login' %}" method="post" class="form"
+                    style="background-color: #06083E;  border-radius: 4%;">
+
+                    {% csrf_token %}
+                    <div class="mb-0 " style="block-size: 450px; padding-block-start: 50px;">
+                        <div class="panel panel-default" style="background-color: #06083E; border: black">
+                            <div class="text-center px-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white"
+                                    class="bi bi-person-circle" viewBox="0 0 20 20">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                    <path fill-rule="evenodd"
+                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-center text-white">LOG IN</h3>
+                            <br>
+                            <!-- <div class="panel-heading text-white">Login</div> -->
+                            <div class="panel-body ">
+                                {% if error_message %}
+                                <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                                {% endif %}
+                                <div class="form-group clearfix">
+                                    <input v-model="username" :rules="userName" type="username" required
+                                        class="form-control" id="exampleInputEmail1" aria-describedby="username"
+                                        placeholder="Username" />
                                 </div>
-                            </form>
+                                <br>
+                                <div class="form-group clearfix border border-success">
+                                    <input v-model="password" :rules="passwordRules"
+                                        :type="passwordShow ? 'text' : 'password'" placeholder="Password"
+                                        prepend-inner-icon="mdi-key"
+                                        :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'"
+                                        @click:append="passwordShow = !passwordShow" required class="form-control"
+                                        id="exampleInputPassword1" />
+                                </div>
+                                <br>
+                                <div class="text-center">
+                                    <a href="{% url 'confirm' %}" class="btn btn-light bg-dark-subtle">LOGIN</a> &nbsp;
+                                    <br>
+                                    <br>
+                                    <a href="/password">Forgot Password?</a>
+                                    <!-- <a href="/register">Register</a> -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>    
+                </form>
+            </div>
         </div>
+    </div>
+    </div>
     {% endblock %}
 
 </body>
