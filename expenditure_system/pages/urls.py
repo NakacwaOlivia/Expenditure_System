@@ -2,7 +2,7 @@ from django.urls import path
 from .views import WelcomePageView, UpdatePageView, RegisterPageView, ProfilePageView, LoginPageView, DashboardPageView, ConfirmPageView, StaffPageView, AddPageView, QuantityPageView, ItemPageView
 # urls.py
 
-#_____________________edited this to new one_______________-
+#_____________________edited this to new one_______________
 from django.urls import path    
 from . import views
 

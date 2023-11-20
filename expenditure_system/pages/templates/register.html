@@ -1,53 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% block title %}Expenditure System | Register{% endblock %}</title>
-  {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
-  <script
-    src="https://kit.fontawesome.com/970ef4d33f.js" crossorigin="anonymous"></script>
-</head>
-<body>
-{% block content %}
-<!-- the bg color of this div will be changed either by bg-primary or st`else -->
-  <div class="container-fluid justify-content-center align-items-center px-10" style="block-size: 100vh; background-color: #83849f; text-align: center;  padding-inline-start: 30%; padding-block-start: 8%; padding-inline-end: 30%; padding-block-end: 14%; ">
-    <div class="px-5 rounded-2 pt-0 center-box" style="background-color: #06083e; block-size : 60vh; padding-block-start: 10%; border-radius: 4% !important; ">
-      <div class="p-2" style="padding-block-start: 20% !important; ">
-        <h1 class="text-center text-white fw-light">Register</h1>
-      </div>
-      <br>
-      <div class="box">
-        <form class="col gy-2 gx-3 align-items-center">
-          <div class="col-auto fs-2">
-            <label class="visually-hidden" for="autoSizingInputGroup">user form</label>
-          <div class="input-group">
-          <div class="input-group-text"><i class="fa-solid fa-envelope"></i></div>
-            <input type="email" class="form-control" id="autoSizingInputGroup" placeholder="Email"/></div>
-          <div class="input-group mt-4">
-            <div class="input-group-text"><i class="fa-solid fa-user"></i></div>
-              <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username"/>
-            </div>
-            <div class="input-group mt-4">
-              <div class="input-group-text"><i class="fa-solid fa-lock"></i></div>
-                <input type="password" class="form-control" id="autoSizingInputGroup" placeholder="Password"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Expenditure System | Register{% endblock %}</title>
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+    <script
+      src="https://kit.fontawesome.com/970ef4d33f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    {% block content %}
+    <!-- the bg color of this div will be changed either by bg-primary or st`else -->
+    <div
+      class="container-fluid justify-content-center align-items-center px-10"
+      style="
+        block-size: 100vh;
+        background-color: #83849f;
+        text-align: center;
+        padding-inline-start: 30%;
+        padding-block-start: 8%;
+        padding-inline-end: 30%;
+        padding-block-end: 14%;
+      "
+    >
+      <div
+        class="px-5 rounded-2 pt-0 center-box"
+        style="
+          background-color: #06083e;
+          block-size: 60vh;
+          padding-block-start: 10%;
+          border-radius: 4% !important;
+        "
+      >
+        <div class="p-2" style="padding-block-start: 20% !important">
+          <h1 class="text-center text-white fw-light">Register</h1>
+        </div>
+        <br />
+        <div class="box">
+          <form class="col gy-2 gx-3 align-items-center">
+            <div class="col-auto fs-2">
+              <label class="visually-hidden" for="autoSizingInputGroup"
+                >user form</label
+              >
+              <div class="input-group">
+                <div class="input-group-text">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="autoSizingInputGroup"
+                  placeholder="Email"
+                />
               </div>
-            <div class="input-group mt-4">
-              <div class="input-group-text"><i class="fa-solid fa-lock"></i></div>
-                <input type="password" class="form-control" id="autoSizingInputGroup" placeholder="Confirm Password"/>
+              <div class="input-group mt-4">
+                <div class="input-group-text">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="autoSizingInputGroup"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="input-group mt-4">
+                <div class="input-group-text">
+                  <i class="fa-solid fa-lock"></i>
+                </div>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="autoSizingInputGroup"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="input-group mt-4">
+                <div class="input-group-text">
+                  <i class="fa-solid fa-lock"></i>
+                </div>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="autoSizingInputGroup"
+                  placeholder="Confirm Password"
+                />
               </div>
             </div>
-            <div class="mt-3 form-check" style="align-items: left;">
+            <div class="mt-3 form-check" style="align-items: left">
               <input class="form-check-input" type="checkbox" id="gridCheck" />
-              <label class="form-check-label text-white" for="gridCheck">Agree to terms and conditions</label>
+              <label class="form-check-label text-white" for="gridCheck"
+                >Agree to terms and conditions</label
+              >
             </div>
             <div class="col-auto d-flex justify-content-center p-2 m-3">
-              <a href="{% url 'login' %}" class="btn btn-light bg-dark-subtle">REGISTER</a>
+              <a href="{% url 'login' %}" class="btn btn-light bg-dark-subtle"
+                >REGISTER</a
+              >
             </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-{% endblock %}
-</body>
+    {% endblock %}
+  </body>
 </html>
