@@ -2,6 +2,8 @@ from django.utils.crypto import get_random_string
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.shortcuts import render
+from .forms import UserRegisterForm
+
 
 from django.views.generic import TemplateView  # Import TemplateView
 # Create your views here.
