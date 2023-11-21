@@ -50,25 +50,25 @@ class ProfilePageView(TemplateView):
 class LoginPageView(TemplateView):
     template_name = "login.html"
 
-    def get(self, request):
-        return render(request, 'login.html')
+    # def get(self, request):
+    #     return render(request, 'login.html')
 
-    def post(self, request):
-        # this is supposed to change i.e either to get the username or email
-        # user_email = request.POST.get('user_email')
-        username = request.POST.get('username')
-        # print("The captured username is ", username)
+    # def post(self, request):
+    #     # this is supposed to change i.e either to get the username or email
+    #     # user_email = request.POST.get('user_email')
+    #     username = request.POST.get('username')
+    #     # print("The captured username is ", username)
 
-        # Generate a random token
-        token = get_random_string(length=8)
+    #     # Generate a random token
+    #     token = get_random_string(length=8)
 
-        # Store the token in the session for verification later
-        request.session['sent_token'] = token
+    #     # Store the token in the session for verification later
+    #     request.session['sent_token'] = token
 
-        # Send the token to the user's email (add your email sending logic here)
+    #     # Send the token to the user's email (add your email sending logic here)
 
-        # Redirect to the confirmation page after sending the token
-        return redirect('confirm_page')
+    #     # Redirect to the confirmation page after sending the token
+    #     return redirect('confirm_page')
 
 
 class DashboardPageView(TemplateView):
@@ -97,28 +97,8 @@ class QuantityPageView(TemplateView):
 class ItemPageView(TemplateView):
     template_name = "item.html"
 
-
 # ___________________________________________ shanita ______________________________
 # views.py
-
-
-# def login(request):
-#     if request.method == 'POST':
-#         user_email = request.POST.get('user_email')
-
-#         # Generate a random token
-#         token = get_random_string(length=8)
-
-#         # Store the token in the session for verification later
-#         request.session['sent_token'] = token
-
-#         # Send the token to the user's email (add your email sending logic here)
-
-#         # Redirect to the confirmation page after sending the token
-#         return redirect('confirm_page')
-
-#     return render(request, 'login.html')
-
 
 def confirm_email(request):
     if request.method == 'POST':
@@ -126,16 +106,25 @@ def confirm_email(request):
         sent_token = request.session.get('sent_token')
 
         if entered_token == sent_token:
+            # If the entered token matches the sent token
             messages.success(request, 'Email confirmed successfully!')
             # Redirect to the dashboard upon successful email confirmation
-            # Replace 'dashboard' with your dashboard page URL name
-            return redirect('dashboard')
+            return redirect('dashboard')  # Replace 'dashboard' with your dashboard page URL name
         else:
+            # If the tokens do not match, display an error message
             messages.error(request, 'Invalid token. Please try again.')
             return redirect('confirm_page')
 
     return render(request, 'confirm.html')
 
+def dashboard(request):
+    if not request.session.get('email_confirmed'):
+        # If the email is not confirmed, redirect to the confirmation page
+        messages.info(request, 'Please confirm your email to access the dashboard.')
+        return redirect('confirm_page')  # Redirect to the confirmation page URL
+
+    # If the email is confirmed, render the dashboard
+    return render(request, 'dashboard.html')
 
 # def dashboard(request):
 #     return render(request, 'dashboard.html')
