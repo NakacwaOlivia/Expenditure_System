@@ -1,4 +1,4 @@
-{% comment %} {% load staticfiles %} {% endcomment %}
+{% load static %}
 
 <!doctype html>
 <html lang="en">
@@ -15,7 +15,7 @@
     {% bootstrap_javascript %}
 
         <!-- custom css -->
-        {% comment %} <link rel="stylesheet" href="{% staticfiles 'style.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
   </head>
   <body style="background-color: #83849f">
@@ -25,7 +25,7 @@
 
         <!-- content -->
         {% block content %}
-          
+
         {% endblock %}
 
 

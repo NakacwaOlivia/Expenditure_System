@@ -25,21 +25,23 @@
                                 <div>
                                     <p> Please enter the access code to update the items. Contact the admin to obtain one.</p>
                                 </div>
+
                               <form>
                                 <div class="mb-2">
                                   <label for="security code" class="col-form-label">Enter security code:</label>
                                   <input type="text" class="form-control" id="securitycode" maxlength="6">
                                 </div>
                               </form>
+
                             </div>
                             <div class="modal-footer d-flex justify-content-center">
                                 <div class="container text-center">
                                     <div class="row gx-5">
                                       <div class="col">
-                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary btn" data-bs-dismiss="modal">Close</button>
                                       </div>
                                       <div class="col">
-                                        <a href="{% url 'update' %}" class="btn btn-primary btn-sm">
+                                        <a href="{% url 'update' %}" class="btn text-white" style="background: #06083E;">
                                             Validate
                                         </a>
                                         
