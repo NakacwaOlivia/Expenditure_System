@@ -1,0 +1,68 @@
+  <!-- Topside -->
+  <div class="container">
+    <div class="row mt-3">
+        
+        <div class="col-md-4">
+            <div class="card text-bg-primary mb-3 mt-3 rounded-0">
+                <div class="card-header h3">
+                    New Information
+                </div>
+                <div class="card-body bg-light text-black ">
+                    <marquee behavior="" direction="">
+                        <h3 class="my-4">For New Expenditure Information Update Here!</h3>
+                    </marquee>
+                      <a href="../templates/update.html">
+                        <button class="btn btn-primary">Update Item</button>
+                      </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- end of first card -->
+
+        <div class="col-md-8">
+                <div class="card text-bg-primary mb-3 mt-4 rounded-0">
+                    <div class="card-header h3">
+                        Statistics
+                    </div>
+
+                    <div class="card-body bg-light text-black ">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <a href="{% url 'staff'%}" class="text-decoration-none text-dark">
+                                <div class="card text-center p-3 my-card shadow">
+                                    <h3><span>Staff <i class="bi bi-people-fill"></i></span></h3>
+                                    <h3>4</h3>
+                                </div>
+                            </a>
+                          </div>
+                          <!-- end of card 1 -->
+
+                          <div class="col-md-4">
+                            <a href="{% url 'item' %}" class="text-decoration-none text-dark">
+                                <div class="card text-center p-3 my-card shadow">
+                                    <h3><span>Items <i class="bi bi-cart-fill"></i></span></h3>
+                                    <h3>4</h3>
+                                </div>
+                            </a>
+                          </div>
+                          <!-- end of card 2 -->
+
+                          <div class="col-md-4">
+                            <a href="{% url 'quantity' %}" class="text-decoration-none text-dark">
+                              <div class="card text-center p-3 my-card shadow">
+                                  <h3><span>Quantity <i class="bi bi-bar-chart-fill"></i></span></h3>
+                                  <h3>4</h3>
+                              </div>
+                          </a>
+                          </div>
+                          <!-- end of card 3 -->
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!-- end of second card -->
+    </div>
+</div>
+<!-- end of Topside -->

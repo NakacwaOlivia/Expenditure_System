@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.shortcuts import render
 from .forms import UserRegisterForm
+from django.contrib.auth.decorators import login_required
 
 
 from django.views.generic import TemplateView  # Import TemplateView
@@ -70,7 +71,7 @@ class LoginPageView(TemplateView):
     #     # Redirect to the confirmation page after sending the token
     #     return redirect('confirm_page')
 
-
+# ====================== samuel =======================
 class DashboardPageView(TemplateView):
     template_name = "dashboard.html"
 
@@ -78,24 +79,30 @@ class DashboardPageView(TemplateView):
         return render(request, 'dashboard.html')
 
 
-class ConfirmPageView(TemplateView):
-    template_name = "confirm.html"
+class LogoutPageView(TemplateView):
+    template_name = 'logout.html'
+    
+    def get(self, request):
+        return render(request, 'logout.html')
 
 
 class StaffPageView(TemplateView):
-    template_name = "staff.html"
-
-
-class AddPageView(TemplateView):
-    template_name = "add.html"
+    template_name = "dashboard/staff.html"
 
 
 class QuantityPageView(TemplateView):
-    template_name = "quantity.html"
+    template_name = "dashboard/quantity.html"
 
 
 class ItemPageView(TemplateView):
-    template_name = "item.html"
+    template_name = "dashboard/item.html"
+
+# ========== end of samuel =======================
+
+
+class ConfirmPageView(TemplateView):
+    template_name = "confirm.html"
+
 
 # ___________________________________________ shanita ______________________________
 # views.py

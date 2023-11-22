@@ -1,0 +1,66 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg bg-primary navbar-primary">
+    {% comment %} {% if user.is_authenticated %} {% endcomment %}
+    <div class="container">
+
+        <a class="navbar-brand text-white" href="{% url 'dashboard' %}">EMS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <!-- ============== url to the dashboard page =================-->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="{% url 'dashboard'%}">Dashboard</a>
+                </li>
+            </ul>
+
+            <!-- ============= url to the profile page ===================== -->
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="{% url 'profile' %}">Profile</a>
+                </li>
+
+                <!-- ============= url to the logout page ===================== -->
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>
+        </div>
+
+    {% comment %} {% else %} {% endcomment %}
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="{% url 'dashboard'%}"></a>
+                    </li>
+                </ul>
+
+                <!-- ============ url to the register page ================== -->
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="{% url 'register' %}">Register</a>
+                    </li>
+
+                    <!-- ============ url to the login page ================== -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+
+
+
+
+    {% comment %} {% endif %} {% endcomment %}
+
+    </div>
+</nav>
+<!-- end of navbar -->
