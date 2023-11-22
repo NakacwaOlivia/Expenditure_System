@@ -179,16 +179,6 @@ def dashboard(request):
     # If the email is confirmed, render the dashboard
     return render(request, 'dashboard.html')
 
-# def dashboard(request):
-#     return render(request, 'dashboard.html')
-
-
-# def welcome(request):
-#     # Your logic here, if any
-#     # Rendering the welcome.html template
-#     return render(request, 'welcome.html')
-
-# ________________________________________________ends here____________________
 
 def validate_code(request):
     if request.method == 'POST':

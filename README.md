@@ -4,3 +4,10 @@
 2. Activate it
 3. Install requirements
 4. Run on your local machine
+
+
+superuser credentials 
+    {
+        username: admin
+        password: admin
+    }
