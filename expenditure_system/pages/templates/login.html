@@ -44,8 +44,9 @@
                                             <br>
                                             <div class="form-group clearfix">
                                                 <span class="fa-duotone fa" id="basic-addon2"><font-awesome-icon icon="fa-solid fa-user-secret"/></span>
-                                                <input v-model="password" :rules="passwordRules" :type="passwordShow ? 'text' : 'password'" placeholder="Password" prepend-inner-icon="mdi-key" :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'" @click:append="passwordShow = !passwordShow"
+                                                <input type="password" autocomplete="off" v-model="password" :rules="passwordRules" :type="passwordShow ? 'text' : 'password'" placeholder="Password" prepend-inner-icon="mdi-key" :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'" @click:append="passwordShow = !passwordShow"
                                                 required class="form-control" id="exampleInputPassword1"/>
+                                                
                                             </div>
                                             <br>
                                             <div class="text-center">
