@@ -6,7 +6,7 @@ from .views import WelcomePageView, UpdatePageView, RegisterPageView, ProfilePag
 from django.urls import path
 from . import views
 
-# ________________________original code_________________________________________
+# ________________________original code___________________
 urlpatterns = [
     path('', WelcomePageView.as_view(), name='welcome'),
     path('update/', UpdatePageView.as_view(), name='update'),
