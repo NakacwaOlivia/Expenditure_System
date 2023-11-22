@@ -1,9 +1,10 @@
 from django.utils.crypto import get_random_string
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.shortcuts import render
+# from django.shortcuts import render
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
+import random, string
 
 
 from django.views.generic import TemplateView  # Import TemplateView
@@ -143,3 +144,19 @@ def dashboard(request):
 #     return render(request, 'welcome.html')
 
 # ________________________________________________ends here____________________
+
+def validate_code(request):
+    if request.method == 'POST':
+        entered_code = request.POST.get('securitycode')
+        # Perform the validation logic
+        if entered_code == '123456':  # Replace 'your_secret_code' with the actual secret code
+            messages.success(request, 'Code verified successfully!')
+            return redirect('update')
+        else:
+            # if the code is invalid, display an error message
+            error_message = 'Invalid code. Please try again.'
+            messages.error(request, error_message)
+            return redirect('dashboard')
+    return redirect('dashboard')  # Redirect to the home page if the form is not submitted
+
+

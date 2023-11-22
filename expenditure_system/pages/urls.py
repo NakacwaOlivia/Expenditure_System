@@ -5,6 +5,7 @@ from .views import WelcomePageView, UpdatePageView, RegisterPageView, ProfilePag
 # _____________________edited this to new one_______________
 from django.urls import path
 from . import views
+from .views import validate_code
 
 # ________________________original code___________________
 urlpatterns = [
@@ -18,7 +19,7 @@ urlpatterns = [
     path('staff/', StaffPageView.as_view(), name='staff'),
     path('quantity/', QuantityPageView.as_view(), name='quantity'),
     path('item/', ItemPageView.as_view(), name='item'),
-    
+    path('validate-code/', validate_code, name='validate_code'),
     path('logout/', LogoutPageView.as_view(), name='logout'),
     
 
