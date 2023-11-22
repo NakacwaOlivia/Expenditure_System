@@ -1,10 +1,16 @@
 from django.utils.crypto import get_random_string
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 # from django.shortcuts import render
-from .forms import UserRegisterForm
+# from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.views import PasswordResetView
 import random, string
+from django.views import View
+from .forms import RegisterForm
+
 
 
 from django.views.generic import TemplateView  # Import TemplateView
@@ -23,24 +29,52 @@ class UpdatePageView(TemplateView):
     template_name = "update.html"
 
 
-class RegisterPageView(TemplateView):
-    template_name = "register.html"
+# class RegisterPageView(TemplateView):
+#     template_name = "register.html"
 
-    def get(self, request):
-        form = UserRegisterForm()
+#     def get(self, request):
+#         form = UserRegisterForm()
+#         return render(request, self.template_name, {'form': form})
+
+#     def post(self, request):
+#         form = UserRegisterForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             username = form.cleaned_data.get('username')
+#             print("The username is ", username)
+#             messages.success(request, f'Account created for {username}!')
+
+#             return redirect('login')
+
+#         return render(request, self.template_name, {'form': form})
+
+class RegisterPageView(View):
+    form_class = RegisterForm
+    initial = {'key': 'value'}
+    template_name = 'register.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        # will redirect to the home page if a user tries to access the register page while logged in
+        if request.user.is_authenticated:
+            return redirect(to='dashboard')
+
+        # else process dispatch as it otherwise normally would
+        return super(RegisterPageView, self).dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
         return render(request, self.template_name, {'form': form})
 
-    def post(self, request):
-        form = UserRegisterForm(request.POST)
-        print(form)
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
-            print("The username is ", username)
-            messages.success(request, f'Account created for {username}!')
 
-            return redirect('login')
-        print('I am here now')
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}')
+
+            return redirect(to='login')
 
         return render(request, self.template_name, {'form': form})
 
@@ -72,6 +106,17 @@ class LoginPageView(TemplateView):
     #     # Redirect to the confirmation page after sending the token
     #     return redirect('confirm_page')
 
+class ForgotPasswordView(SuccessMessageMixin, PasswordResetView):
+    template_name = 'forgot_password.html'
+
+    # email_template_name = 'users/password_reset_email.html'
+    # subject_template_name = 'users/password_reset_subject'
+    success_message = "We've emailed you instructions for setting your password, " \
+                      "if an account exists with the email you entered. You should receive them shortly." \
+                      " If you don't receive an email, " \
+                      "please make sure you've entered the address you registered with, and check your spam folder."
+    success_url = reverse_lazy('login')
+    
 # ====================== samuel =======================
 class DashboardPageView(TemplateView):
     template_name = "dashboard.html"

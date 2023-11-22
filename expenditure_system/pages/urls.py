@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import WelcomePageView, UpdatePageView, RegisterPageView, ProfilePageView, LoginPageView, DashboardPageView, ConfirmPageView, StaffPageView, QuantityPageView, ItemPageView, LogoutPageView
+from .views import WelcomePageView, UpdatePageView, RegisterPageView, ProfilePageView, LoginPageView, DashboardPageView, ConfirmPageView, StaffPageView, QuantityPageView, ItemPageView, LogoutPageView, ForgotPasswordView
 # urls.py
 
 # _____________________edited this to new one_______________
@@ -21,6 +21,6 @@ urlpatterns = [
     path('item/', ItemPageView.as_view(), name='item'),
     path('validate-code/', validate_code, name='validate_code'),
     path('logout/', LogoutPageView.as_view(), name='logout'),
+    path('forgot_password/', ForgotPasswordView.as_view(), name='forgot_password'),
     
-
 ]
