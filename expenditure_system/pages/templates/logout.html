@@ -2,7 +2,7 @@
 {% block title %} Logout Page {% endblock %}
 
 <!-- django crispy forms -->
-{% load crispy_forms_tags %}
+<!-- I removed ->  {% load crispy_forms_tags  -->
 
 {% block content%}
 <div class="container">
@@ -13,10 +13,10 @@
                 <hr>
 
                 <div class="alert alert-danger">
-                    <h4>You have logout</h4>
+                    <h4>You have been logged out</h4>
                 </div>
 
-                <a href="{% url 'user-login' %}" class="btn btn-success">Login</a>
+                <a href="{% url 'login' %}" class="btn btn-success">Login</a>
             </div>
         </div>
     </div>
