@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expenditure System | Confirm</title>
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+  </head>
+  <body>
+    <div
+      class="container-fluid d-flex justify-content-center align-items-center text-white border border-success"
+      style="block-size: 100vh; background-color: #83849f; text-align: center"
+    >
+      <form
+        method="post"
+        action="/confirm/"
+        class="d-flex flex-column align-items-center p-5 rounded-3 justify-content-center"
+        style="background-color: #06083e; block-size: 50vh"
+      >
+        {% csrf_token %}
+        <h1 class="display-4 text-uppercase">Confirmation Page</h1>
+        <p class="my-2">
+          Please enter the confirmation code that has been sent to your email
+        </p>
+        <div class="mb-3 my-1">
+          <label for="token_input" class="form-label"
+            >Enter Confirmation Code:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="token_input"
+            name="token_input"
+            required
+          />
+        </div>
+        <div class="row justify-content-between my-1">
+          <div class="col-lg-4">
+            <a href="{% url 'dashboard-index' %}" class="btn btn-light btn-block"
+              >Confirm</a
+            >
+            <!-- <button type="submit" class="btn btn-light btn-block">Confirm</button> -->
+          </div>
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          &nbsp; &nbsp;
+          <div class="col-lg-4">
+            <a href="{% url 'welcome' %}" class="btn btn-light btn-block"
+              >Cancel</a
+            >
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

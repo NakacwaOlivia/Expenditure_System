@@ -11,3 +11,10 @@ superuser credentials
         username: samuel
         password: admin
     }
+
+the project has two apps
+
+{
+    - dashbaord which handles all the dashboard urls
+    - user which handles all urls regarding a user
+}
