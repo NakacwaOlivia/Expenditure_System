@@ -116,8 +116,10 @@ class ForgotPasswordView(SuccessMessageMixin, PasswordResetView):
                       " If you don't receive an email, " \
                       "please make sure you've entered the address you registered with, and check your spam folder."
     success_url = reverse_lazy('login')
+
+
     
-# ====================== samuel =======================
+# _________________________ samuel _________________________
 class DashboardPageView(TemplateView):
     template_name = "dashboard.html"
 
@@ -143,7 +145,8 @@ class QuantityPageView(TemplateView):
 class ItemPageView(TemplateView):
     template_name = "dashboard/item.html"
 
-# ========== end of samuel =======================
+# _________________________ end of samuel _________________________
+
 
 
 class ConfirmPageView(TemplateView):
