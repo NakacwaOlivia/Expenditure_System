@@ -8,6 +8,6 @@
 
 superuser credentials 
     {
-        username: admin
+        username: samuel
         password: admin
     }
