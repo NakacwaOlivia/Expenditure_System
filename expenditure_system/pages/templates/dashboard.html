@@ -1,12 +1,9 @@
 {% extends 'partials/dashboard_base.html'%}
-
 {% load static %}
-
-<!-- Name of the page-->
 {% block title %}Dashboard{% endblock %}
 
-{% block content %}
 
+{% block content %}
 {% comment %} {% if user.is_authenticated and user.is_staff and user.is_superuser %} {% endcomment %}
     <!-- top navbar -->
     {% include 'partials/topnav.html' %}
