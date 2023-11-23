@@ -1,0 +1,29 @@
+{% extends 'partials/base.html' %}
+{% block title %} Welcome Page {% endblock %}
+
+<!-- django crispy forms -->
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container-fluid d-flex align-items-center justify-content-center" style="background-color: #06083E; margin:0; height:93vh;">
+    <div class="card text-center text-white" style="background-color: #06083E; max-width: 700px; padding: 20px;">
+
+        <div>
+            <h1 class="display-5 card-title">WELCOME TO <br> EXPENDITURE INFORMATION</h1>
+        </div>
+        <div>
+            <h2 class="mb-5" class="card-title display-6">MANAGEMENT SYSTEM</h2>
+        </div>
+
+        <div>
+            <a href="{% url 'user-login' %}" class="btn btn-light">LOGIN</a>
+            <span class="mx-2"></span>
+            <a href="{% url 'user-register' %}" class="btn btn-light">REGISTER</a>
+        </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

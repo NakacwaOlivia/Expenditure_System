@@ -1,0 +1,108 @@
+{% extends 'partials/base.html' %}
+
+<!-- Name of the page-->
+{% block title %}Dashboard{% endblock %}
+
+
+<!-- content -->
+{% block content %}
+
+  {% if user.is_authenticated and user.is_staff and user.is_superuser %}
+    <!-- top navbar -->
+    {% include 'partials/topnav.html' %}
+    
+    <!-- graphs -->
+    <div class="container">
+      <div class="row my-4">
+        <div class="col-md-6">
+          <div class=" bg-white">
+            <canvas id="myChart"></canvas>
+            </div>
+            
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            
+            <script>
+              const ctx = document.getElementById('myChart');
+            
+              new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                  datasets: [{
+                    label: 'Items',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1,
+                    backgroundColor: [
+                      'red',  
+                      'blue',  
+                      'yellow',
+                      'green', 
+                      'purple', 
+                      'orange' 
+                    ]
+                  }]
+                },
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true
+                    }
+                  }
+                }
+              });
+            </script>
+            
+        </div>
+        <!-- end of graph 1 -->
+
+        <div class="col-md-6">
+          <div class=" bg-white d-flex justify-content-center align-items-center" style="height: 318px;">
+            <canvas id="myChart1"></canvas>
+            
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            
+            <script>
+              const ctx1 = document.getElementById('myChart1');
+            
+              new Chart(ctx1, {
+                type: 'pie',
+                data: {
+                  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                  datasets: [{
+                    label: 'Items',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1,
+                    backgroundColor: [
+                      'red',  
+                      'blue',  
+                      'yellow',
+                      'green', 
+                      'purple', 
+                      'orange' 
+                    ]
+                  }]
+                },
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true
+                    }
+                  }
+                }
+              });
+            </script>
+            
+        </div>
+      </div>
+      <!-- end of graph 2 -->
+      
+      </div>
+    </div>
+    <!-- enf of graphs -->
+  
+  {% else %}
+    {% include 'dashboard/staff_index.html' %}
+  {% endif %}
+  
+{% endblock %}
+

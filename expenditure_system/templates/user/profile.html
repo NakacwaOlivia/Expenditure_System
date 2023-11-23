@@ -1,0 +1,63 @@
+{% extends 'partials/base.html' %}
+{% block title %} Logout Page {% endblock %}
+
+{% block content %}
+     <!-- profile -->
+    <div class="container">
+      <div class="row my-5 ">
+          <div class="col-md-2">
+          </div>
+          <!-- end of column 1 -->
+
+          <div class="col-md-8 mt-5">
+              <div class="card">
+                <div class="card-body" style="background-color: #06083E;">
+                <div class="row">
+
+                    <div class="col-md-8 text-white">
+                        <span class="h4"> Profile Information </span> <a href="" class="btn btn-info btn-sm float-end text-white bg-success" >Edit</a> 
+                        <hr>
+                        <table class="table table-borderless text-white" style="background-color: #06083E;">
+
+                            <tbody>
+                                <tr>
+                                    <th scope="1">Name</th>
+                                    <td>{{ user.username }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="1">Email</th>
+                                    <td>{{ user.email}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="1">Contact</th>
+                                    <td>{{ user.profile.phone}}0</td>
+                                </tr>
+
+                                <tr>
+                                <th scope="1">Location</th>
+                                <td>{{ user.profile.address}}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    <!-- end of table -->
+                    </div>
+
+        <div class="col-md-4">
+            <img class="img-thumbnail rounded-2" src="{{ user.profile.image.url }}" alt="profile picture">
+        </div> 
+
+        </div>
+    </div>
+
+    </div>
+</div>
+    <!-- end of column 2 -->
+    </div>
+    </div>
+    <!-- end of profile -->
+
+
+{% endblock %}

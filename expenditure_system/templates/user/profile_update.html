@@ -1,0 +1,45 @@
+{% extends 'partials/base.html' %}
+{% block title %} Logout Page {% endblock %}
+
+<!-- django crispy forms -->
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <!-- profile -->
+    <div class="container">
+      <div class="row my-5 ">
+        <div class="col-md-4">
+        </div>
+        <!-- end of column 1 -->
+
+        <div class="col-md-8">
+          <div class="card">
+
+            <div class="card-header bg-primary text-white">
+              update Profile Page
+            </div>
+
+            <div class="card-body">
+              <div class="row">
+
+                <div class="col-md-8">
+                    <span class="h4"> Profile Information </span>
+                    <hr>
+                    <form method="POST" action="{% url 'user-profile-update' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ user_form|crispy }}
+                        {{ profile_form|crispy }}
+                        <button type="submit" class="btn btn-success">Update</button>
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- end of column 2 -->
+      </div>
+    </div>
+    <!-- end of profile -->
+{% endblock %}
