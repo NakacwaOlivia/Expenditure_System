@@ -1,22 +1,27 @@
-{% extends 'partials/base.html' %}
+{% extends 'partials/dashboard_base.html' %}
+{% load static %}
 {% block title %}Expenditure System |  Logout Page {% endblock %}
 
 <!-- django crispy forms -->
-<!-- I removed ->  {% load crispy_forms_tags  -->
+{% load crispy_forms_tags %}
+
 
 {% block content%}
 <div class="container">
     <div class="row mt-5">
         <div class="col-md-6 offset-md-3">
-            <div class="border bg-white p-3">
+            <div class="border bg-white p-5">
                 <h3>Logout Page</h3>
                 <hr>
 
                 <div class="alert alert-danger">
+                    {% csrf_token%}
+                    {% comment %} {{ form|crispy }} {% endcomment %}
                     <h4>You have been logged out</h4>
                 </div>
+                
 
-                <a href="{% url 'login' %}" class="btn btn-success">Login</a>
+                <a href="{% url 'login' %}" class="btn text-white " style="background: #06083E;">Login</a>
             </div>
         </div>
     </div>

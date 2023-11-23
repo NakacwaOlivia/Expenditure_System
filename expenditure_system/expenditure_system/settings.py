@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages',
     'bootstrap5',
+    'crispy_forms',
 
 ]
 
@@ -144,3 +145,10 @@ EMAIL_HOST_PASSWORD = 'your_email_password'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 # ________________________________ends here_________________________
+
+# django crispy forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# login redirect
+LOGIN_REDIRECT_URL = 'confirm'
