@@ -46,9 +46,10 @@ def confirm(request):
     return render(request, 'user/confirm.html')
 
 
-# -------------- confirm page ----------------
+# -------------- forgot pwd page ----------------
 def forgot_password(request):
     return render(request, 'user/forgot_password.html')
 
 
+# provide a code to the user on clicking the update item button
 
