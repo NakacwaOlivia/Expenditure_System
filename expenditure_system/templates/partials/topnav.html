@@ -1,126 +1,201 @@
-  <!-- Topside -->
-  <div class="container">
-    <div class="row mt-3">
-        
-        <div class="col-md-4">
-            <div class="card text-bg-primary mb-3 mt-3 rounded-0">
-                <div class="card-header h3 text-white" style="background: #06083E;">
-                    New Information
+<!-- Topside -->
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-4">
+      <div class="card text-bg-primary mb-3 mt-3 rounded-0">
+        <div class="card-header h3 text-white" style="background: #06083e">
+          New Information
+        </div>
+        <div class="card-body bg-light text-black">
+          <marquee behavior="" direction="">
+            <h3 class="my-4">For New Expenditure Information Update Here!</h3>
+          </marquee>
+          <!-- <a href="{% url 'add'%}">
+            <button class="btn text-white" style="background-color: #06083e">
+              Add Item
+            </button>
+          </a> -->
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="sendCode()"
+            style="background-color: #06083e"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+            data-bs-whatever="update"
+          >
+            Add Item
+          </button>
+
+          <!-- this is the model for the verification -->
+          <div
+            class="modal fade"
+            id="staticBackdrop"
+            tabindex="-1"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            aria-labelledby="ModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalLabel">Verification</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
-                <div class="card-body bg-light text-black ">
-                    <marquee behavior="" direction="">
-                        <h3 class="my-4">For New Expenditure Information Update Here!</h3>
-                    </marquee>
-                    <a href="{% url 'add'%}">
-                      <button class="btn text-white" style="background-color: #06083E;">Add Item</button>
-                    </a>
+                <div class="modal-body">
+                  <div>
+                    <p>
+                      Please enter the access code to update the items. Contact
+                      the admin to obtain one.
+                    </p>
+                  </div>
 
-                      {% comment %} <!-- this is the model for the verification -->
-                      <div class="modal fade" id="staticBackdrop" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="ModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="ModalLabel">Verification</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div>
-                                    <p> Please enter the access code to update the items. Contact the admin to obtain one.</p>
-                                </div>
-
-                                <!-- <form> -->
-                                    <form method="post" action="{% url 'validate_code' %}">
-
-                                    {% csrf_token %}
-                                    <div class="mb-2">
-                                    <label for="security code" class="col-form-label">Enter security code:</label>
-                                    <input type="text" class="form-control" id="securitycode" name="securitycode" maxlength="6">
-                                    </div>
-                                </form>
-
-                            </div>
-                            <div class="modal-footer d-flex justify-content-center">
-                                <div class="container text-center">
-                                    <div class="row gx-5">
-                                      <div class="col">
-                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                                      </div>
-                                      <div class="col">
-                                        <!-- <a href="{% url 'update' %}" class="btn text-white" style="background: #06083E;" onclick="validateCode()">
+                  <!-- <form> -->
+                  <form method="post" action="{% url 'validate_code' %}">
+                    {% csrf_token %}
+                    <div class="mb-2">
+                      <label for="security code" class="col-form-label"
+                        >Enter security code:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="securitycode"
+                        name="securitycode"
+                        maxlength="6"
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                  <div class="container text-center">
+                    <div class="row gx-5">
+                      <div class="col">
+                        <button
+                          type="button"
+                          class="btn btn-secondary btn-sm"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                      <div class="col">
+                        <!-- <a href="{% url 'update' %}" class="btn text-white" style="background: #06083E;" onclick="validateCode()">
                                             Validate
                                         </a> -->
-                                        <a class="btn btn-primary btn-sm text-white" onclick="validateCode()" style="background: #06083E;">
-                                            Validate
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                            </div>
-                          </div>
-                        </div>
+                        <a
+                          class="btn btn-primary btn-sm text-white"
+                          onclick="validateCode()"
+                          style="background: #06083e"
+                        >
+                          Validate
+                        </a>
                       </div>
-
-                      <script>
-                        function validateCode() {
-                            var enteredCode = document.getElementById('securitycode').value;
-                            if (enteredCode.length > 0) {
-                                document.forms[0].submit();  // Submit the form
-                            } else {
-                                alert('Please enter a code ...');  // Display an alert if the code is empty
-                            }
-                        }
-                    </script> {% endcomment %}
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+
+          <script>
+             function sendCode() {
+              alert("Sending verification code...");
+              // Send an AJAX request to your Django backend to generate and send the verification code
+              $.ajax({
+                url: "{% url 'generate_code' %}",
+                method: "POST",
+                dataType: {},
+                data: {
+                  csrfmiddlewaretoken: "{{ csrf_token }}",
+                },
+                success: function (response) {
+                  // Display a message to the user that the verification code has been sent
+                  alert("Verification code has been sent to your email.");
+                },
+                error: function (xhr, status, error) {
+                  // Display an error message to the user if the verification code could not be sent
+                  alert("Error sending verification code: " + error);
+                },
+              });
+              alert("Code sent!");
+            }
+
+
+            function validateCode() {
+              var enteredCode = document.getElementById("securitycode").value;
+              if (enteredCode.length > 0) {
+                document.forms[0].submit(); // Submit the form
+              } else {
+                alert("Please enter a code ..."); // Display an alert if the code is empty
+              }
+            }
+          </script>
         </div>
-
-        <!-- end of first card -->
-
-        <div class="col-md-8">
-                <div class="card text-bg-primary mb-3 mt-4 rounded-0">
-                    <div class="card-header h3" style="background-color: #06083E;">
-                        Statistics
-                    </div>
-
-                    <div class="card-body bg-light text-black ">
-                        <div class="row">
-                          <div class="col-md-4">
-                            <a href="{% url 'dashboard-staff'%}" class="text-decoration-none text-dark">
-                                <div class="card text-center p-3 my-card shadow">
-                                    <h3><span>Staff <i class="bi bi-people-fill"></i></span></h3>
-                                    <h3></h3>
-                                </div>
-                            </a>
-                          </div>
-                          <!-- end of card 1 -->
-
-                          <div class="col-md-4">
-                            <a href="{% url 'dashboard-item' %}" class="text-decoration-none text-dark">
-                                <div class="card text-center p-3 my-card shadow">
-                                    <h3><span>Items <i class="bi bi-cart-fill"></i></span></h3>
-                                    <h4></h4>
-                                </div>
-                            </a>
-                          </div>
-                          <!-- end of card 2 -->
-
-                          <div class="col-md-4">
-                            <a class="text-decoration-none text-dark">
-                              <div class="card text-center p-3 my-card shadow">
-                                  <h3><span>EMS</span></h3>
-                                  <h4></h4>
-                              </div>
-                          </a>
-                          </div>
-                          <!-- end of card 3 -->
-
-                        </div>
-                    </div>
-                </div>
-        </div>
-        <!-- end of second card -->
-
-        
+      </div>
     </div>
+
+    <!-- end of first card -->
+
+    <div class="col-md-8">
+      <div class="card text-bg-primary mb-3 mt-4 rounded-0">
+        <div class="card-header h3" style="background-color: #06083e">
+          Statistics
+        </div>
+
+        <div class="card-body bg-light text-black">
+          <div class="row">
+            <div class="col-md-4">
+              <a
+                href="{% url 'dashboard-staff'%}"
+                class="text-decoration-none text-dark"
+              >
+                <div class="card text-center p-3 my-card shadow">
+                  <h3>
+                    <span>Staff <i class="bi bi-people-fill"></i></span>
+                  </h3>
+                  <h3></h3>
+                </div>
+              </a>
+            </div>
+            <!-- end of card 1 -->
+
+            <div class="col-md-4">
+              <a
+                href="{% url 'dashboard-item' %}"
+                class="text-decoration-none text-dark"
+              >
+                <div class="card text-center p-3 my-card shadow">
+                  <h3>
+                    <span>Items <i class="bi bi-cart-fill"></i></span>
+                  </h3>
+                  <h4></h4>
+                </div>
+              </a>
+            </div>
+            <!-- end of card 2 -->
+
+            <div class="col-md-4">
+              <a class="text-decoration-none text-dark">
+                <div class="card text-center p-3 my-card shadow">
+                  <h3><span>EMS</span></h3>
+                  <h4></h4>
+                </div>
+              </a>
+            </div>
+            <!-- end of card 3 -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of second card -->
+  </div>
 </div>
 <!-- end of Topside -->

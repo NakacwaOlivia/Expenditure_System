@@ -16,5 +16,5 @@ urlpatterns = [
     path('', user_views.welcome, name='welcome'), 
     path('confirm/', user_views.confirm, name='confirm'),
     path('forgot_password/', user_views.forgot_password, name='forgot_password'),
-    
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'bootstrap5',
+    'django_password_strength',
 ]
 
 MIDDLEWARE = [
@@ -143,8 +144,11 @@ LOGIN_URL = 'user-login'
 MEDIA_ROOT = (BASE_DIR / 'media/')
 MEDIA_URL = '/media/'
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'k.nakacwa.olivia@gmail.com'
-EMAIL_HOST_PASSWORD = '@Thwart0123'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587  # Example: 587 for Gmail
+EMAIL_HOST_USER = 'gaussjay4@gmail.com'
+EMAIL_HOST_PASSWORD = 'jxfyefashzenffoe'
+EMAIL_USE_SSL = False

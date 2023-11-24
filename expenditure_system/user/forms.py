@@ -2,6 +2,9 @@ from django import forms
 from .models import Profile
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+# from password_strength import PasswordField
+# from django_password_strength.widgets import PasswordStrengthInput, PasswordConfirmationInput
+
 
 class CreateUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -13,7 +16,7 @@ class CreateUserForm(UserCreationForm):
     
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
+        fields = ['first_name','last_name','username', 'email', 'password1', 'password2']
  
 
 class UserUpdateForm(forms.ModelForm):
@@ -22,7 +25,7 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username', 'email']
 
 
-class ProfileUpateForm(forms.ModelForm):
+class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['address', 'phone', 'image']

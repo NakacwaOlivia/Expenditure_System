@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm, UserUpdateForm, ProfileUpateForm
+from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm
+from django.core.mail import send_mail
+import secrets
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
 from django.contrib.auth import authenticate, login
-from .utils import send_otp
+# from .utils import send_otp
 from datetime import datetime       
 import pyotp
 from django.contrib.auth.models import User
@@ -19,7 +20,8 @@ def login(request):
         user = authenticate(request, username=username, password=password)
         
         if user is not None:
-            send_otp(request)
+            print('YOu should be redirected to the confirm page')
+            # send_otp(request)
             request.session['username'] = username
             return redirect('confirm')
         else:
@@ -66,8 +68,6 @@ def confirm(request):
 # def dashboard(request):
 #     return render(request, 'user/dashboard.html', {'username': request.session['username']})
 
-=======
->>>>>>> 68de7b09f24e1239b6f20f2d667a52d61cb056a5
 
 
 def register(request):
@@ -101,7 +101,7 @@ def profile_update(request):
     
     else: 
         user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileUpateForm(instance=request.user.profile)
+        profile_form = ProfileUpdateForm(instance=request.user.profile)
         
     context = {
         'user_form': user_form,
@@ -120,5 +120,44 @@ def forgot_password(request):
 def welcome(request):
     return render(request, 'welcome.html')
 
+
 # provide a code to the user on clicking the update item button
+def validate_code(request):
+    if request.method == 'POST':
+        entered_code = request.POST.get('securitycode')
+        # Perform the validation logic
+        if entered_code == '123456':  # Replace 'your_secret_code' with the actual secret code
+            messages.success(request, 'Code verified successfully!')
+            return redirect('update')
+        else:
+            # if the code is invalid, display an error message
+            error_message = 'Invalid code. Please try again.'
+            messages.error(request, error_message)
+            return redirect('dashboard')
+    return redirect('dashboard')  # Redirect to the home page if the form is not submitted
+
+
+def send_email(to_email, code):
+    # Your email sending logic using send_mail
+    subject = 'Verification Code'
+    message = f'Your verification code is: {code}'
+    from_email = 'your@example.com'  # Replace with your email address
+    recipient_list = [to_email]
+
+    send_mail(subject, message, from_email, recipient_list)
+
+
+# Inside your class-based view
+def form_valid(self, form):
+    # Generate a random security code
+    entered_code = secrets.token_hex(4)  # Adjust the length of the code as needed
+
+    # Get the email address of the user
+    to_email = form.cleaned_data['email']
+
+    # Send the email
+    send_email(to_email, entered_code)
+
+    # Redirect the user to the next page
+    return redirect('update')
 #   i have added it

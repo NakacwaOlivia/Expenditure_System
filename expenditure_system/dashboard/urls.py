@@ -9,13 +9,10 @@ urlpatterns = [
     path('item/', views.item, name='dashboard-item'),
     path('register/', user_views.register, name='user-register'),
     path('', views.welcome, name='welcome'), 
-<<<<<<< HEAD
-    path('update/', views.update, name='update'),  
-=======
     path('update/', views.update, name='update'),
     path('add/', views.add, name='add'),
     path('item/update/<int:pk>/', views.item_update, name='dashboard-item-update'),
     path('item/delete/<int:pk>/', views.item_delete, name='dashboard-item-delete'),
->>>>>>> 68de7b09f24e1239b6f20f2d667a52d61cb056a5
-      
+    path('validate_code/', views.validate_code, name='validate_code'),
+    path('generate_code/', views.generateCode, name='generate_code'),
 ]

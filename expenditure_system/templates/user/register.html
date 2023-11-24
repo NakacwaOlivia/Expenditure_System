@@ -17,6 +17,8 @@
                     <form method="POST">
                         {% csrf_token %}
                         {{ form|crispy }}
+                        <!-- <meter max="4" id="password-strength-meter"></meter> -->
+                        <!-- <p id="password-strength-text"></p> -->
                         <input type="submit" class="btn btn-success" value="Register">
                     </form>
                 </div>
