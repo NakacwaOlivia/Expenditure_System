@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Item
 from .forms import ItemForm
-
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 def welcome(request):
     return render(request, 'welcome.html')
@@ -16,8 +17,20 @@ def index(request):
 
 @login_required
 def staff(request):
-    return render(request, 'dashboard/staff.html')
+    workers = User.objects.all()
+    
+    context = {
+        'workers': workers,
+    }
+    return render(request, 'dashboard/staff.html', context)
 
+@login_required
+def staff_details(request, pk):
+    workers = User.objects.get(id=pk)
+    context = {
+        'workers': workers,
+    }
+    return render(request, 'dashboard/staff_details.html', context)
 
 @login_required
 def item(request):
@@ -36,7 +49,7 @@ def item_delete(request, pk):
         return redirect('dashboard-item')
     return render(request, 'dashboard/item_delete.html')
 
-
+@login_required
 def item_update(request, pk):
     item = Item.objects.get(id=pk)
     if request.method == 'POST':

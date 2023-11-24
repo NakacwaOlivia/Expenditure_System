@@ -19,7 +19,7 @@
 
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="{% url 'user-profile' %}">Profile</a>
+                    <a class="nav-link active text-white" aria-current="page" href="{% url 'user-profile' %}">{{user.username}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{% url 'user-logout' %}">Logout</a>

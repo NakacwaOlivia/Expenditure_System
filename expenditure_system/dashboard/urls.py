@@ -5,6 +5,7 @@ from user import views as user_views
 urlpatterns = [
     path('dashboard/', views.index, name='dashboard-index'),
     path('staff/', views.staff, name='dashboard-staff'),
+    path('staff/details/<int:pk>/', views.staff_details, name='dashboard-staff-details'),
     path('item/', views.item, name='dashboard-item'),
     path('register/', user_views.register, name='user-register'),
     path('', views.welcome, name='welcome'), 
