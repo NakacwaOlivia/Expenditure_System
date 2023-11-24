@@ -9,6 +9,6 @@ urlpatterns = [
     path('quantity/', views.quantity, name='dashboard-quantity'),
     path('register/', user_views.register, name='user-register'),
     path('', views.welcome, name='welcome'), 
-    path('update/', views.update, name='update')   
+    path('update/', views.update, name='update'),  
       
 ]
