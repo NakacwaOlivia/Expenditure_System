@@ -6,9 +6,11 @@ urlpatterns = [
     path('dashboard/', views.index, name='dashboard-index'),
     path('staff/', views.staff, name='dashboard-staff'),
     path('item/', views.item, name='dashboard-item'),
-    path('quantity/', views.quantity, name='dashboard-quantity'),
     path('register/', user_views.register, name='user-register'),
     path('', views.welcome, name='welcome'), 
-    path('update/', views.update, name='update')   
+    path('update/', views.update, name='update'),
+    path('add/', views.add, name='add'),
+    path('item/update/<int:pk>/', views.item_update, name='dashboard-item-update'),
+    path('item/delete/<int:pk>/', views.item_delete, name='dashboard-item-delete'),
       
 ]

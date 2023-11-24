@@ -21,7 +21,7 @@ class Item(models.Model):
         verbose_name_plural = 'Item'
 
     def __str__(self):
-        return f'{self.name} - {self.price} - {self.category}'
+        return f'{self.name}'
 
 
 # quantity model
