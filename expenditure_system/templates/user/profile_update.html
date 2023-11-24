@@ -1,9 +1,10 @@
-{% extends 'partials/base.html' %}
-{% block title %} Logout Page {% endblock %}
+ {% extends 'partials/base.html' %}
+{% block title %} Profile Update Page {% endblock %}
 
 <!-- django crispy forms -->
 {% load crispy_forms_tags %}
 
+{% comment %}
 {% block content %}
     <!-- profile -->
     <div class="container">
@@ -15,8 +16,8 @@
         <div class="col-md-8">
           <div class="card">
 
-            <div class="card-header bg-primary text-white">
-              update Profile Page
+            <div class="card-header bg-primary text-white display-5">
+              Profile Update
             </div>
 
             <div class="card-body">
@@ -42,4 +43,41 @@
       </div>
     </div>
     <!-- end of profile -->
+{% endblock %} {% endcomment %}
+
+
+{% block content %}
+     <!-- profile -->
+    <div class="container">
+      <div class="row my-5 ">
+          <div class="col-md-2">
+          </div>
+          <!-- end of column 1 -->
+
+          <div class="col-md-8 mt-5">
+              <div class="card">
+                <div class="card-body" style="background-color: #06083E;">
+                <div class="row">
+
+                    <div class="col-md-8 text-white">
+                        <span class="h4"> Profile Update </span> 
+                        <hr>
+                        <form method="POST" action="{% url 'user-profile-update' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ user_form|crispy }}
+                            {{ profile_form|crispy }}
+                            <button type="submit" class="btn btn-success">Update</button>
+
+        </div>
+    </div>
+
+    </div>
+</div>
+    <!-- end of column 2 -->
+    </div>
+    </div>
+    <!-- end of profile -->
+
+
 {% endblock %}
+

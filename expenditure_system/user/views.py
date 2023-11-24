@@ -19,13 +19,8 @@ def register(request):
     return render(request, 'user/register.html', context)
 
 
-def welcome(request):
-    return render(request, 'welcome.html')
-
-
 def profile(request):
     return render(request, 'user/profile.html')
-
 
 
 def profile_update(request):
@@ -35,7 +30,7 @@ def profile_update(request):
     
     else: 
         user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileUpateForm(instance=request.user.profile)
+        profile_form = ProfileUpateForm(instance=request.ser.profile)
         
     context = {
         'user_form': user_form,
@@ -54,5 +49,9 @@ def forgot_password(request):
     return render(request, 'user/forgot_password.html')
 
 
-# provide a code to the user on clicking the update item button
+# -------------- welcome page ----------------
+def welcome(request):
+    return render(request, 'welcome.html')
 
+# provide a code to the user on clicking the update item button
+#   i have added it
