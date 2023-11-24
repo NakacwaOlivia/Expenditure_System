@@ -1,5 +1,5 @@
 {% extends 'partials/base.html' %}
-{% block title %} Logout Page {% endblock %}
+{% block title %} Profile Page {% endblock %}
 
 {% block content %}
      <!-- profile -->
@@ -15,7 +15,7 @@
                 <div class="row">
 
                     <div class="col-md-8 text-white">
-                        <span class="h4"> Profile Information </span> <a href="" class="btn btn-info btn-sm float-end text-white bg-success" >Edit</a> 
+                        <span class="h4"> Profile Information </span> <a href="{% url 'user-profile-update'%}" class="btn btn-info btn-sm float-end text-white bg-success" >Edit</a> 
                         <hr>
                         <table class="table table-borderless text-white" style="background-color: #06083E;">
 

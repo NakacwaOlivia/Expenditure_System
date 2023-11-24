@@ -1,8 +1,5 @@
 {% extends 'partials/base.html' %}
-
-<!-- Name of the page-->
 {% block title %}Items{% endblock %}
-
 {% block content %}
 
   <!-- top navbar -->
@@ -14,34 +11,31 @@
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Item</th>
-              <th scope="col">Activity</th>
+              <th scope="col">Price</th>
+              <th scope="col">Category</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
+            {% for item in items %}
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
+              <td>{{ item.id }}</td>             
+              <td>{{ item.name }}</td>
+              <td>{{ item.price }}</td>
+              <td>{{ item.category }}</td>
+
               <td>
-                <a href="../templates/update.html" class="btn btn-sm btn-info">Edit</a>
-                <a href="../templates/update.html" class="btn btn-sm btn-danger ms-4">Remove</a>
+                <span>
+                  <a class="btn btn-success" style="background-color: #06083E; href="{% url 'dashboard-item-update' item.id %}">Update</a>
+                </span>
+                <span>
+                  <a class="btn btn-danger" href="{% url 'dashboard-item-delete' item.id %}">Delete</a>
+                </span>
               </td>
+                      
+              
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>
-                <a href="../templates/update.html" class="btn btn-sm btn-info">Edit</a>
-                <a href="../templates/update.html" class="btn btn-sm btn-danger ms-4">Remove</a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>
-                <a href="../templates/update.html" class="btn btn-sm btn-info">Edit</a>
-                <a href="../templates/update.html" class="btn btn-sm btn-danger ms-4">Remove</a>
-              </td>
-            </tr>
+           {% endfor %}
           </tbody>
         </table>
   </div>
@@ -49,8 +43,8 @@
 
   <!-- add item button -->
   <div class="container d-flex justify-content-center my-5">
-    <a href="../templates/add.html">
-      <button class="btn btn-lg btn-primary text-uppercase">Add new Item</button>
+    <a href="{% url 'add' %}">
+      <button class="btn text-white" style="background-color: #06083E;">Add new item</button>
     </a>
   </div>
   <!-- end of add item button -->

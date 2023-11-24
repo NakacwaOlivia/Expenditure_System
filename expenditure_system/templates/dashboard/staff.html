@@ -1,8 +1,5 @@
 {% extends 'partials/base.html' %}
-
-<!-- Name of the page-->
 {% block title %}Staff {% endblock %}
-
 
 {% block content %}
     <!-- top navbar -->
@@ -16,29 +13,25 @@
           <thead class="text-white" style="background-color: #06083E;">
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
+            {% for worker in workers %}
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <th scope="row">{{ worker.id }}</th>
+              <td>{{ worker.username }}</td>
+              <td>{{ worker.email }}</td>
+              <td>
+                <a href="{% url 'dashboard-staff-details' worker.id %}">
+                  <button class="btn text-white" style="background-color: #06083E;">View</button>
+                </a>
+              </td>
+                
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
   </div>

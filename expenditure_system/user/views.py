@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm, UserUpdateForm, ProfileUpateForm
 from django.contrib.auth.decorators import login_required
+<<<<<<< HEAD
 from django.contrib.auth import authenticate, login
 from .utils import send_otp
 from datetime import datetime       
@@ -65,6 +66,8 @@ def confirm(request):
 # def dashboard(request):
 #     return render(request, 'user/dashboard.html', {'username': request.session['username']})
 
+=======
+>>>>>>> 68de7b09f24e1239b6f20f2d667a52d61cb056a5
 
 
 def register(request):
@@ -81,9 +84,6 @@ def register(request):
                }
     return render(request, 'user/register.html', context)
 
-def welcome(request):
-    return render(request, 'welcome.html')
-
 
 def profile(request):
     return render(request, 'user/profile.html')
@@ -93,6 +93,11 @@ def profile_update(request):
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
         profile_form = ProfileUpateForm(request.POST, request.FILES, instance=request.user.profile)
+        
+        if user_form.is_valid():
+            user_form.save()
+            
+            return redirect('user-profile')
     
     else: 
         user_form = UserUpdateForm(instance=request.user)
@@ -106,9 +111,14 @@ def profile_update(request):
 
 
 
-# -------------- confirm page ----------------
+# -------------- forgot pwd page ----------------
 def forgot_password(request):
     return render(request, 'user/forgot_password.html')
 
 
+# -------------- welcome page ----------------
+def welcome(request):
+    return render(request, 'welcome.html')
 
+# provide a code to the user on clicking the update item button
+#   i have added it
